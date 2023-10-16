@@ -1,5 +1,7 @@
 "use strict";
 
+const { json } = require("body-parser");
+
 // DOM Document Object Model / HTML에서 객체를 컨트롤 할 수 있게 해줌
 
 const id = document.querySelector("#id"),
@@ -14,5 +16,11 @@ function login() {
         password : password.value
     };
 
-    fetch()l
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(req)
+    });
 };
