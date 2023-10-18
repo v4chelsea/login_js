@@ -26,6 +26,13 @@ function login() {
     })
     .then((res) => res.json())
     .then((res) => {
-        
+        if (res.success) {
+            location.href = "/";
+        } else {
+            alert(res.msg);
+        }
+    })
+    .catch((err) => {
+        console.error("Error Raised when login")
     });
 };
